@@ -21,8 +21,10 @@ import numpy as np
 # Available datasets: KDDTrain+.txt, KDDTest+.txt, etc. More read Data Set Introduction.html within the NSL-KDD dataset folder
 # Type the training dataset file name in ''
 
-'''
 
+# Comment out only the ONE Scenario that needs to be run below. Each Scenarios has its own training and testing dataset
+
+'''
 #Scenario A
 TrainingData = 'Training-a1-a3.csv'
 TestingData = 'Testing-a2-a4.csv' 
@@ -31,10 +33,10 @@ TestingData = 'Testing-a2-a4.csv'
 TrainingData = 'Training-a1-a2.csv'
 TestingData = 'Testing-a1.csv'
 
+
 # Scenario C
 TrainingData = 'Training-a1-a2.csv'
 TestingData = 'Testing-a1-a2-a3.csv'
-
 '''
 
 # Batch Size
@@ -42,8 +44,14 @@ BatchSize=10
 # Epohe Size
 NumEpoch=10
 
+
+#Import custom module
 import data_preprocessor as dp
+
+#Build preprocessed training data
 X_train, y_train = dp.get_processed_data(TrainingData, '/home/ubuntu/lab-cs-ml-00301/categoryMappings/', classType = 'binary')
+
+#Build preprocessed testing data 
 X_test, y_test = dp.get_processed_data(TestingData, '/home/ubuntu/lab-cs-ml-00301/categoryMappings/', classType = 'binary')
 
 
